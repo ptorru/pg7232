@@ -43,45 +43,13 @@
 
 #include "mcc_generated_files/mcc.h"
 
-void TMR6_UserCallBack(void){
-    int o=0;
-    for(int i=0; i<10;i++){
-        o++;
-    }
-}
-
-
 /*
                          Main application
  */
 void main(void)
 {
-    int o=0;
-    // initialize the device
     SYSTEM_Initialize();
-
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-    TMR6_SetInterruptHandler(TMR6_UserCallBack);
-
-    while (1)
-    {
-        // Add your application code
-        o++;
-        o--;
-    }
+    while(1);
 }
 
 
