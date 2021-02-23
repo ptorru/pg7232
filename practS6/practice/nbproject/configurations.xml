@@ -31,6 +31,8 @@
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>sensor_pt.c</itemPath>
+      <itemPath>sensor_pt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
