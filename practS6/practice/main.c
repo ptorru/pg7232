@@ -48,10 +48,11 @@
                          Main application
  */
 
-#define SENSORS 2
+#define SENSORS 3
 
 #define SENPTID 0
 #define SENGNID 1
+#define SENACID 2 
 
 #define REGISTER(iopen, iget, iclose, id, control) \
   control[id].open = iopen;                        \
@@ -96,6 +97,7 @@ void main(void)
   printf("Hello World\r\n");
   REGISTER(&myopen, &myget, &myclose, SENPTID, all_sensors);
   REGISTER(&myopen_gn, &myget_gn, &myclose_gn, SENGNID, all_sensors);
+  REGISTER(&myopen_ac, &myget_ac, &myclose_ac, SENACID, all_sensors);
 
   for (int i = 0; i < SENSORS; i++)
   {
