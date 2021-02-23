@@ -49,7 +49,6 @@
                          Main application
  */
 
-#define SENSORS 2
 
 #define SENPTID 0
 #define SENGNID 1
@@ -103,7 +102,7 @@ void main(void)
   printf("Hello World\r\n");
   REGISTER(&myopen, &myget, &myclose, SENPTID, all_sensors);
   REGISTER(&myopen_gn, &myget_gn, &myclose_gn, SENGNID, all_sensors);
-  REGISTER(&myPedroOpen,&myPedroGet,&myPedroClose,SENPTID,all_sensors);
+  REGISTER(&myPedroOpen,&myPedroGet,&myPedroClose,SENPETID,all_sensors);
   
   for (int i = 0; i < SENSORS; i++)
   {
