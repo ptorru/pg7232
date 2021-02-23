@@ -4,6 +4,8 @@ In this week's session we will simulate a bit of collaborative work through git.
 
 A simple C project is given, where a HW Adapter Pattern must be implemented.
 
+The starting point is on the practice folder.
+
 Each participant in the session must implement both, a HW proxy module and a HW Adapter to be integrated with the main Project.
 
 ## Rules of Engagement ##
