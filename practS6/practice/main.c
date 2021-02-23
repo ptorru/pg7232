@@ -86,14 +86,11 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
     
     EUSART_Initialize();
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
 
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
+   
     printf("Hello World\r\n");
     REGISTER(&myopen,&myget,&myclose,SENPTID,all_sensors);
-    //control[0].open=iopen;control[0].get=iget;control[0].close=iclose;
+
     
     for(int i=0; i<SENSORS;i++)
     {
