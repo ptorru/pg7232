@@ -49,7 +49,8 @@
  */
 
 #define SENPTID 0
-#define SENSORS 1
+#define SENACID 3
+#define SENSORS 4
 
 #define REGISTER(iopen,iget,iclose,id,control) \
 control[id].open=iopen;control[id].get=iget;control[id].close=iclose;
