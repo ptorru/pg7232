@@ -43,8 +43,9 @@
 
 #include <stdint.h>
 #include "mcc_generated_files/mcc.h"
-#include "sensor_gn.c"
-#include "sensor_dn.c"
+#include "sensor_gn.h"
+#include "sensor_dn.h"
+#include "sensor_ac.h"
 /*
                          Main application
  */
