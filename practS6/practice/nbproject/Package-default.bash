@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/practS6.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=practS6.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=practs6/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/practice.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=practice.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=practice/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/practs6/bin
+makeDirectory ${TMPDIR}/practice/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/practs6.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/practice.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/practs6.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/practice.tar *
 checkReturnCode
 
 # Cleanup
