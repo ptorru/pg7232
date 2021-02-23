@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=practS6
+PROJECTNAME=practice
 
 # Active Configuration
 DEFAULTCONF=default

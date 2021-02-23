@@ -44,14 +44,16 @@
 #include <stdint.h>
 #include "mcc_generated_files/mcc.h"
 #include "sensor_gn.c"
+#include "sensor_dn.c"
 /*
                          Main application
  */
 
-#define SENSORS 2
+#define SENSORS 3
 
 #define SENPTID 0
 #define SENGNID 1
+#define SENDNID 2
 
 #define REGISTER(iopen, iget, iclose, id, control) \
   control[id].open = iopen;                        \
@@ -96,6 +98,7 @@ void main(void)
   printf("Hello World\r\n");
   REGISTER(&myopen, &myget, &myclose, SENPTID, all_sensors);
   REGISTER(&myopen_gn, &myget_gn, &myclose_gn, SENGNID, all_sensors);
+  REGISTER(&myopen_dn, &myget_dn, &myclose_dn, SENDNID, all_sensors);
 
   for (int i = 0; i < SENSORS; i++)
   {
