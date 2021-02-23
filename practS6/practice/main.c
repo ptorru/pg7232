@@ -100,11 +100,8 @@ void main(void)
   printf("Hello World\r\n");
   REGISTER(&myopen, &myget, &myclose, SENPTID, all_sensors);
   REGISTER(&myopen_gn, &myget_gn, &myclose_gn, SENGNID, all_sensors);
-<<<<<<< HEAD
-  REGISTER(&myopen_ac, &myget_ac, &myclose_ac, SENACID, all_sensors);
-=======
   REGISTER(&myopen_dn, &myget_dn, &myclose_dn, SENDNID, all_sensors);
->>>>>>> b5527e2f38558038c577863ef15dc41fae540a10
+  REGISTER(&myopen_ac, &myget_ac, &myclose_ac, SENACID, all_sensors);
 
   for (int i = 0; i < SENSORS; i++)
   {
