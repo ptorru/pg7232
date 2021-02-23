@@ -42,6 +42,7 @@
 */
 
 #include <stdint.h>
+#include "sensor_pt.h"
 #include "mcc_generated_files/mcc.h"
 
 /*
@@ -49,7 +50,8 @@
  */
 
 #define SENPTID 0
-#define SENSORS 1
+#define SENPETID 2
+#define SENSORS 2
 
 #define REGISTER(iopen,iget,iclose,id,control) \
 control[id].open=iopen;control[id].get=iget;control[id].close=iclose;
@@ -89,6 +91,8 @@ void main(void)
    
     printf("Hello World\r\n");
     REGISTER(&myopen,&myget,&myclose,SENPTID,all_sensors);
+    
+    REGISTER(&myPedroOpen,&myPedroGet,&myPedroClose,SENPTID,all_sensors);
 
     
     for(int i=0; i<SENSORS;i++)
