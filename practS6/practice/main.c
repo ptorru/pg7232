@@ -44,73 +44,83 @@
 #include <stdint.h>
 #include "sensor_pt.h"
 #include "mcc_generated_files/mcc.h"
-
+#include "sensor_gn.c"
 /*
                          Main application
  */
 
-#define SENPTID 0
-#define SENPETID 2
 #define SENSORS 2
 
-#define REGISTER(iopen,iget,iclose,id,control) \
-control[id].open=iopen;control[id].get=iget;control[id].close=iclose;
+#define SENPTID 0
+#define SENGNID 1
+#define SENPETID 2
+#define SENSORS 3
 
-typedef struct sensor_ctrl_s {
-    int  (*open)(void);
-    int  (*get)(void);
-    void (*close)(void);
+
+#define REGISTER(iopen, iget, iclose, id, control) \
+  control[id].open = iopen;                        \
+  control[id].get = iget;                          \
+  control[id].close = iclose;
+
+typedef struct sensor_ctrl_s
+{
+  int (*open)(void);
+  int (*get)(void);
+  void (*close)(void);
 } sensor_ctrl_t;
 
-int myopen(){
-    printf("Main Open called!\n");
-    return 0;
+int myopen()
+{
+  printf("Main Open called!\n");
+  return 0;
 }
 
-int myget(){
-    return 42;
+int myget()
+{
+  return 42;
 }
 
-void myclose(){
-    printf("All done here!\n");
+void myclose()
+{
+  printf("All done here!\n");
 }
 
 void main(void)
 {
-    sensor_ctrl_t all_sensors[SENSORS];
-    
-    // initialize the device
-    SYSTEM_Initialize();
+  sensor_ctrl_t all_sensors[SENSORS];
+
+  // initialize the device
+  SYSTEM_Initialize();
+
+  INTERRUPT_GlobalInterruptEnable();
+  INTERRUPT_PeripheralInterruptEnable();
+
+  printf("Hello World\r\n");
+  REGISTER(&myopen,&myget,&myclose,SENPTID,all_sensors);
+  EUSART_Initialize();
 
 
-    INTERRUPT_GlobalInterruptEnable();
-    INTERRUPT_PeripheralInterruptEnable();
-    
-    EUSART_Initialize();
+  printf("Hello World\r\n");
+  REGISTER(&myopen, &myget, &myclose, SENPTID, all_sensors);
+  REGISTER(&myopen_gn, &myget_gn, &myclose_gn, SENGNID, all_sensors);
+  REGISTER(&myPedroOpen,&myPedroGet,&myPedroClose,SENPTID,all_sensors);
+  
+  for (int i = 0; i < SENSORS; i++)
+  {
+    all_sensors[i].open();
+  }
 
-   
-    printf("Hello World\r\n");
-    REGISTER(&myopen,&myget,&myclose,SENPTID,all_sensors);
-    
-    REGISTER(&myPedroOpen,&myPedroGet,&myPedroClose,SENPTID,all_sensors);
-
-    
-    for(int i=0; i<SENSORS;i++)
+  while (1)
+  {
+    printf("New values: ");
+    for (int i = 0; i < SENSORS; i++)
     {
-        all_sensors[i].open();
+      printf("%d", all_sensors[i].get());
+      if (i != (SENSORS - 1))
+        printf(",");
     }
-    
-    while(1)
-    {
-        printf("New values: ");
-        for(int i=0; i<SENSORS;i++)
-        {
-            printf("%d",all_sensors[i].get());
-            if(i!=(SENSORS-1))
-                printf(",");
-        }
-        printf("\n");
-    }
+    printf("\n");
+  }
 }
 /**
  End of File
