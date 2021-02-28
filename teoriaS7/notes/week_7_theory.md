@@ -2,7 +2,7 @@
 tags: [Notebooks/PG7232/Theory]
 title: Week 7 - Theory
 created: '2021-02-27T16:55:18.559Z'
-modified: '2021-02-28T16:49:02.187Z'
+modified: '2021-02-28T17:08:38.620Z'
 ---
 
 # Week 7 - Theory
@@ -40,32 +40,8 @@ Practice Session:
 * There are many defnitions of quality
  * Some share the same values: eg those things they aim for.
 
+![Icon](../img/quality_values.jpg)
 
-```mermaid
-graph LR;
-    Garvin  --> Performance;
-    Garvin  --> Quality;
-    Garvin  --> Reliability;
-    Garvin  --> Conformance;
-    Garvin  --> Durability;
-    Garvin  --> Serviceability;
-    Garvin  --> Portability;
-    Garvin  --> Aesthetics;
-    Garvin  --> Perception;
-    McCall  --> Efficiency;
-    McCall  --> Correctness;
-    McCall  --> Reliability;
-    McCall  --> Maintainability;
-    McCall  --> Portability;
-    McCall  --> Usability;
-    McCall  --> Integrity;
-    ISO9126 --> Reliability;
-    ISO9126 --> Functionality;
-    ISO9126 --> Usability;
-    ISO9126 --> Efficiency;
-    ISO9126 --> Maintainability;
-    ISO9126 --> Portability;
-```
 
 * It is probably safe to say that by following SW engineering principles, with good criteria, you will achieve it.
   * Pressman 1.5: Principles for SW Engineering Practice.
@@ -82,10 +58,7 @@ graph LR;
 ## The Quality Dilemma
 The quality dilemma is essentially this:
 
-```mermaid
-graph LR;
-Wrong --- |Balance is Key| Perfect;
-```
+![Icon](../img/quality_balance.jpg)
 
 * Good Enough Software
   * This means identifying the main value points and focusing on those:
@@ -93,42 +66,7 @@ Wrong --- |Balance is Key| Perfect;
   * Also it means understanding what the implications of different costs are:
     * Does the cost of maintenance warrant a complex architecture?
 
-```mermaid
-graph LR;
-A[Cost of Quality] ---|vs.| B[Cost of Low Quality SW]
-
-
-subgraph Prevention
-M[Management/Plan] --- A 
-T[Extra Technical Effort] --- A
-TP[Test Planning Cost] --- A
-TR[Others/Training] --- A
-end 
-
-subgraph Appraisal
-R[Reviews]         --- A
-C[Data Collection] --- A
-TS[Testing/Debug]  --- A
-end
-
-
-subgraph Failure
-EX         --- Litigation
-EX         --- HL[Human Losses]
-EX         --- Careers
-
-IF         --- Collateral 
-IF         --- Logistics  
-IF         --- Strategic  
-IF         --- RW[Rework]
-
-B          --- EX[External Failure]
-B          --- IF[Internal Failure]
-
-end
-
-```
-
+![Icon](../img/quality_cost.jpg)
 ![Icon](../img/week7-cost-defects.png)
 
 * What is Good Enough Embedded Software?
@@ -163,25 +101,11 @@ In this section I would like to cover the theory around Continuous Integration a
 * However you call it, Agile, Continuous Delivery etc, all rely on quick small iterations of code.
 * The key though is to include activites that increase quality on each iteration.
 
-```mermaid
-graph LR
-subgraph Increment
-Deliverable --> Development
-Development -->|Quality| Deliverable
-end
-```
+![Icon](../img/ci_iteration.jpg)
 
 ## What is actually Continuous Integration?
 * First let's take a look a the big picture
-
-```mermaid
-graph LR
-
-CD --> CDD[Continuous Deployment]
-CI --> CD[Continuous Delivery]
-UT[Unit Testing] & M[Mocking] --> CI[Continuous Integration]
-
-```
+![Icon](../img/ci_chain.jpg)
 
 * Continuous Deploymen: Getting changes into production automatically.
 * Continuous Delivery: Getting changes into a test/production environment after building *safely*, *quickly*, in a *sutainable* way.
@@ -193,6 +117,10 @@ In this lecture I would like to solely focus on Continuous Integration and outli
 
 Summary in one phrase:
 * A viable environment to undertake the necessary processes to build/test/release in an *automated* fashion.
+* Key enablers:
+  * Automation
+  * Unit Testing
+
 
 Some specific elements include:
 * A Code Versioning System
@@ -208,8 +136,16 @@ Some specific elements include:
 * Team buy-in
   * All developers must buy into the flow and contribute to it
 
+## What is Unit Testing
+
+Key enabler for Unit Testing: Mocking.
+
+### Mocking
+Is the technique
+
 ## Considerations for Embedded Systems
 
+* Check the lecture from week 3. A good SW architecture is critical to enable this.
 * Do not understimate the challenges and cost associated to handling low-level HW.
 * Do not understimate the un-friendliness of Embedded Dev-Ecosystems.
 * Ways of mitigating:
@@ -217,7 +153,14 @@ Some specific elements include:
   * De-Risking HW componentes (eg models, experience).
   * Stay outside of Vendor Specific tools as much as possible (don't be dogmatic, be pragmatic about this).
 
+## Conclusion
+* Continuous Integration is the practice of integrating small changes, several times as quickly as possible.
+* To make this practice scalable and viable you need automation.
+* Proprietary tools without SW friendly interfaces are rife in the embedded world. 
+  * Learning and Experience are the only ways of mitigating this.
+
 ## Must Check References
+* [Throw The Switch](https://www.throwtheswitch.org/)
 * [Jumper Virtual Lab Environment](https://docs.jumper.io/)
 * [Atlassian: CI vs CD vs CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
 * [Jenkins for HW Builds](https://fpgalanguages.com/fpga-1//jenkins-for-hw-builds)
