@@ -2,7 +2,7 @@
 tags: [Notebooks/PG7232/Theory]
 title: Week 7 - Theory
 created: '2021-02-27T16:55:18.559Z'
-modified: '2021-02-28T17:08:38.620Z'
+modified: '2021-03-01T22:57:26.609Z'
 ---
 
 # Week 7 - Theory
@@ -85,6 +85,8 @@ It is the responsability or everybody in the organization:
 
 Ultimately Senior Management is responsible, specially of making sure company/team dynamics are such that everybody is covering an aspect of quality.
 
+Remember Week 5, Agile? Agile aims to inherently build quality into the deliverables, not by introducing checks, but rather from a process level.
+
 From different perspectives the actitivites can be synthesized as:
 * Software Engineering Methods
 * Project Management Techniques
@@ -100,6 +102,7 @@ In this section I would like to cover the theory around Continuous Integration a
 ## Why is this relevant?
 * However you call it, Agile, Continuous Delivery etc, all rely on quick small iterations of code.
 * The key though is to include activites that increase quality on each iteration.
+* Remember week 5? Agile...
 
 ![Icon](../img/ci_iteration.jpg)
 
@@ -156,7 +159,7 @@ Is the technique
 ## Conclusion
 * Continuous Integration is the practice of integrating small changes, several times as quickly as possible.
 * To make this practice scalable and viable you need automation.
-* Proprietary tools without SW friendly interfaces are rife in the embedded world. 
+* Proprietary tools without SW friendly interfaces are rife in the embedded world.
   * Learning and Experience are the only ways of mitigating this.
 
 ## Must Check References
@@ -176,7 +179,50 @@ Is the technique
 ---
 ---
 # Design Pattern: The State Machine
+* We will be consulting Bruce chapter 5.4
+* I am assuming you understand well the concept of State Machines.
 
 ## Description of the Problem
+* Systems responses often depend on the inputs from the user, but also from previous inputs.
+* State Machines help implement "State Memory" in a system.
+* This is not a HW concept, we can implement this in SW too.
+* Useful to implement:
+  * Control interfaces/menus.
+  * Encoders/Decoders.
+  * Anything that requires remembering state to compute its output.
 
+## Implementation
+Bruce presents various different approaches to State Machines:
+* Single Event Receptor
+  * It is the simplest implementation, based of a case switch.
+* Multiple Event Receptor
+  * It decomposes the case switch into different function calls.
+* State Table
+  * It creates a 2D array such that:
+   ```c
+   void execute_fsm(input, state){
+    next_state[input][state].transition();
+   }
+   ```
+   * Useful with: large state spaces, same latency in response.
+* State (Object)
+  * Uses objects to implement each state.
+* Others (AND-States)
 
+It is worth nothing that each implementation has got different trade-offs.
+
+In general it is a useful way to document what should happen when. Any of the more advanced patterns should help avoid massive files.
+
+## Example
+
+I will focus on a MERSM (Multiple Even Receptor State Machine), as it is a simple one that I haven't done before.
+
+I want to implement a coding machine, where:
+* User inputs a pre-defined number of characters.
+* Output over UART encodes these characters in some obscure format.
+* Let's checkout my repo in GitHub for that.
+
+```mermaid
+graph LR;
+A(Fixed Length Message) --> B(Random Output characters)
+```
