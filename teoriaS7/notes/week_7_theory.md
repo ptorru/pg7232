@@ -2,7 +2,7 @@
 tags: [Notebooks/PG7232/Theory]
 title: Week 7 - Theory
 created: '2021-02-27T16:55:18.559Z'
-modified: '2021-03-03T08:07:08.393Z'
+modified: '2021-03-03T08:10:17.461Z'
 ---
 
 # Week 7 - Theory
@@ -243,7 +243,7 @@ I will focus on a MERSM (Multiple Even Receptor State Machine), as it is a simpl
 I want to implement a coding machine, where:
 * User inputs a pre-defined number of characters.
 * Output over UART encodes these characters in some obscure format.
-* Let's checkout my repo in GitHub for that.
+* Let's checkout the [repo in GitHub](https://github.com/ptorru/design_patterns/tree/main/mer_fsm) for that.
 
 ![Icon](../img/fsm.jpg)
 
