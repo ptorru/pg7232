@@ -2,7 +2,7 @@
 tags: [Notebooks/PG7232/Theory]
 title: Week 7 - Theory
 created: '2021-02-27T16:55:18.559Z'
-modified: '2021-03-01T22:57:26.609Z'
+modified: '2021-03-03T08:07:08.393Z'
 ---
 
 # Week 7 - Theory
@@ -34,7 +34,7 @@ Practice Session:
   * What is usually on the way of SW Quality.
 
 * References:
-  * Pressman 1.5, 4, 14, 16
+  * Pressman 1.5, 4, 14, 16, 17
 
 ## Meaning of Quality
 * There are many defnitions of quality
@@ -141,10 +141,33 @@ Some specific elements include:
 
 ## What is Unit Testing
 
-Key enabler for Unit Testing: Mocking.
+Unit Testing involves test at the smallest software level: a module or component.
+
+These tests should test both: 
+* Interfaces
+* Internal behaviour.
+
+Noting from Pressman, Boundary checks are one of the most important tasks:
+* Do we have enough space?
+* Do we control the full range of possible inputs?
+* Does our program behave when doing more iterations than expected?
+
+From Pressman:
+*Unit testing is normally considered as an adjunct to the
+coding step. The design of unit tests can occur before coding begins or after source
+code has been generated.* 
+
+Key enabler for Unit Testing: Mocking (Stubbing).
 
 ### Mocking
-Is the technique
+Or Stubbing is the technique of replacing *drivers* or *sub-modules* with dummy or controlled versions.
+
+![Icon](../img/mock.png)
+
+This allows for:
+* Controlled environment
+* Easy test vector injection
+* Easier result check
 
 ## Considerations for Embedded Systems
 
@@ -222,7 +245,5 @@ I want to implement a coding machine, where:
 * Output over UART encodes these characters in some obscure format.
 * Let's checkout my repo in GitHub for that.
 
-```mermaid
-graph LR;
-A(Fixed Length Message) --> B(Random Output characters)
-```
+![Icon](../img/fsm.jpg)
+

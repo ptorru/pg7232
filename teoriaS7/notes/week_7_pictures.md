@@ -2,7 +2,7 @@
 tags: [Notebooks/PG7232/Theory]
 title: Week 7 - Pictures
 created: '2021-02-28T15:18:54.179Z'
-modified: '2021-02-28T17:02:29.713Z'
+modified: '2021-03-03T08:02:47.211Z'
 ---
 
 # Week 7 - Pictures
@@ -89,4 +89,8 @@ CI --> CD[Continuous Delivery]
 UT[Unit Testing] & M[Mocking] --> CI[Continuous Integration]
 ```
 
+```mermaid
+graph LR;
+A(Fixed Length Message) --> B(Random Output characters)
+```
 
