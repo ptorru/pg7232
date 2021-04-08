@@ -1,7 +1,7 @@
 ---
 title: Week 11 - Optimizations / Software Engineering.
 created: '2021-03-27T18:54:05.572Z'
-modified: '2021-04-07T06:42:42.526Z'
+modified: '2021-04-08T16:27:08.719Z'
 ---
 
 # Week 11 - Optimizations / Software Engineering.
@@ -42,17 +42,16 @@ This idea can be used to highlight to us engineers the full spectrum of our reso
 
 These then are our resources
 ```mermaid
-graph TD;
-Resources --> Tangibles;
-Resources --> Untangibles;
-Tangibles --> Code-Space;
-Tangibles --> Processing-Time;
-Tangibles --> RAM;
-Tangibles --> Development-Time;
-Untangibles --> Development-Time;
-Untangibles --> Flexibility;
-Untangibles --> Maintainability;
-Untangibles --> Stability;
+graph LR;
+Resources --> Measurable;
+Resources --> H-to-Measure;
+Measurable --> Code-Space;
+Measurable --> Speed;
+Measurable --> RAM;
+Measurable --> Development-Time;
+H-to-Measure --> Flexibility;
+H-to-Measure --> Maintainability;
+H-to-Measure --> Stability;
 ```
 
 Following on with Elecia's idea:
