@@ -1,7 +1,7 @@
 ---
 title: Week 11 - Optimizations / Software Engineering.
 created: '2021-03-27T18:54:05.572Z'
-modified: '2021-04-08T16:27:08.719Z'
+modified: '2021-04-08T16:29:59.372Z'
 ---
 
 # Week 11 - Optimizations / Software Engineering.
@@ -82,13 +82,12 @@ Code space is that being used by the compiled program.
   * Take a look at optimization flags for your compiler.
 * Keep track of your optimizations.
 
-```
-Tip from Elecia:
+>Tip from Elecia:
+>
+>If the map file doesn’t present the data in a way that is useful to you, write a script to parse it yourself!
+>
+>Read the map file, and create an output table where the height of the cell is proportional to the size of the function. This is pretty easy to do in Python, especially if you use HTML as the output.
 
-If the map file doesn’t present the data in a way that is useful to you, write a script to parse it yourself!
-
-Read the map file, and create an output table where the height of the cell is proportional to the size of the function. This is pretty easy to do in Python, especially if you use HTML as the output.
-```
 
 ### Optimizing RAM or Data space
 Data space is that required for variables or function's stacks.
